@@ -1,8 +1,8 @@
-import BehaviorTreeStatus from "../BehaviorTreeStatus";
-import BehaviorTreeError from "../Error/BehaviorTreeError";
-import Errors from "../Error/Errors";
-import StateData from "../StateData";
-import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface";
+import BehaviorTreeStatus from "../BehaviorTreeStatus.js";
+import BehaviorTreeError from "../Error/BehaviorTreeError.js";
+import Errors from "../Error/Errors.js";
+import StateData from "../StateData.js";
+import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
 
 /**
  * A behavior tree leaf node for running an action

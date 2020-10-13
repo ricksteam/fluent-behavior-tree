@@ -1,13 +1,13 @@
-import test from "ava";
-import BehaviorTreeBuilder from "../src/BehaviorTreeBuilder";
-import BehaviorTreeError from "../src/Error/BehaviorTreeError";
-import BehaviorTreeStatus from "../src/BehaviorTreeStatus";
-import InverterNode from "../src/Node/InverterNode";
-import StateData from "../src/StateData";
-import SequenceNode from "../src/Node/SequenceNode";
-import ParallelNode from "../src/Node/ParallelNode";
-import SelectorNode from "../src/Node/SelectorNode";
-import Errors from "../src/Error/Errors";
+import test from "ava.js";
+import BehaviorTreeBuilder from "../src/BehaviorTreeBuilder.js";
+import BehaviorTreeError from "../src/Error/BehaviorTreeError.js";
+import BehaviorTreeStatus from "../src/BehaviorTreeStatus.js";
+import InverterNode from "../src/Node/InverterNode.js";
+import StateData from "../src/StateData.js";
+import SequenceNode from "../src/Node/SequenceNode.js";
+import ParallelNode from "../src/Node/ParallelNode.js";
+import SelectorNode from "../src/Node/SelectorNode.js";
+import Errors from "../src/Error/Errors.js";
 
 let testObject: BehaviorTreeBuilder;
 

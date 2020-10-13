@@ -1,8 +1,8 @@
-import BehaviorTreeStatus from "../BehaviorTreeStatus";
-import NodeEnumerator from "../NodeEnumerator";
-import StateData from "../StateData";
-import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface";
-import ParentBehaviorTreeNodeInterface from "./ParentBehaviorTreeNodeInterface";
+import BehaviorTreeStatus from "../BehaviorTreeStatus.js";
+import NodeEnumerator from "../NodeEnumerator.js";
+import StateData from "../StateData.js";
+import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
+import ParentBehaviorTreeNodeInterface from "./ParentBehaviorTreeNodeInterface.js";
 
 /**
  * Runs child nodes in sequence, until one fails.

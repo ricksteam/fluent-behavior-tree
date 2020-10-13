@@ -1,7 +1,7 @@
-import test from "ava";
-import StateData from "../../src/StateData";
-import ActionNode from "../../src/Node/ActionNode";
-import BehaviorTreeStatus from "../../src/BehaviorTreeStatus";
+import test from "ava.js";
+import StateData from "../../src/StateData.js";
+import ActionNode from "../../src/Node/ActionNode.js";
+import BehaviorTreeStatus from "../../src/BehaviorTreeStatus.js";
 
 test("can run action", async (assert) => {
     const state       = new StateData();

@@ -1,9 +1,9 @@
-import BehaviorTreeStatus from "../BehaviorTreeStatus";
-import BehaviorTreeError from "../Error/BehaviorTreeError";
-import Errors from "../Error/Errors";
-import StateData from "../StateData";
-import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface";
-import ParentBehaviorTreeNodeInterface from "./ParentBehaviorTreeNodeInterface";
+import BehaviorTreeStatus from "../BehaviorTreeStatus.js";
+import BehaviorTreeError from "../Error/BehaviorTreeError.js";
+import Errors from "../Error/Errors.js";
+import StateData from "../StateData.js";
+import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
+import ParentBehaviorTreeNodeInterface from "./ParentBehaviorTreeNodeInterface.js";
 
 /**
  * Decorator node that inverts the success/failure of its child.

@@ -1,7 +1,7 @@
 {
-    "name": "fluent-behavior-tree",
-    "version": "1.2.6",
-    "description": "Behavior tree library with a fluent API",
+    "name": "fluent-behavior-tree-browser",
+    "version": "0.1.0",
+    "description": "Behavior tree library with a fluent API, compiled for the browser",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": {
@@ -11,6 +11,7 @@
     "scripts": {
         "test": "rm -r test/dist; tsc -v && tsc -p test/ && ava -v",
         "compile": "npm run lint && tsc -p ./",
+        "rollup":"npx rollup ./dist/index.js --file bundle.js --format iife --name fluentBehaviorTree",
         "precommit": "npm run compile",
         "prepublishOnly": "npm run compile",
         "lint": "tslint -c tslint.json 'src/**/*.ts' --exclude 'src/**/*.d.ts' --fix",
@@ -18,15 +19,14 @@
     },
     "author": "Aaron Scherer <aequasi@gmail.com> (http://aaronscherer.me)",
     "license": "MIT",
-    "dependencies": {
-        "ts-data.stack": "^1.0.6",
-        "ts-iterable": "^1.0.1"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@types/es6-promise": "0.0.33",
-        "@types/node": "^8.0.57",
         "ava": "^0.24.0",
         "husky": "^0.14.3",
+        "rollup": "^2.30.0",
+        "ts-data.stack": "^1.0.6",
+        "ts-iterable": "^1.0.1",
         "tslint": "^5.8.0",
         "typemoq": "^2.1.0",
         "typescript": "^2.6.2"

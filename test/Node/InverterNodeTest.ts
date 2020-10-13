@@ -1,11 +1,11 @@
-import test from "ava";
-import * as TypeMoq from "typemoq";
-import StateData from "../../src/StateData";
-import InverterNode from "../../src/Node/InverterNode";
-import BehaviorTreeNodeInterface from "../../src/Node/BehaviorTreeNodeInterface";
-import BehaviorTreeStatus from "../../src/BehaviorTreeStatus";
-import BehaviorTreeError from "../../src/Error/BehaviorTreeError";
-import Errors from "../../src/Error/Errors";
+import test from "ava.js";
+import * as TypeMoq from "typemoq.js";
+import StateData from "../../src/StateData.js";
+import InverterNode from "../../src/Node/InverterNode.js";
+import BehaviorTreeNodeInterface from "../../src/Node/BehaviorTreeNodeInterface.js";
+import BehaviorTreeStatus from "../../src/BehaviorTreeStatus.js";
+import BehaviorTreeError from "../../src/Error/BehaviorTreeError.js";
+import Errors from "../../src/Error/Errors.js";
 
 let testObject: InverterNode;
 test.beforeEach(() => {

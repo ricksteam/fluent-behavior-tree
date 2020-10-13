@@ -1,15 +1,15 @@
-import Stack from "ts-data.stack";
-import BehaviorTreeStatus from "./BehaviorTreeStatus";
-import BehaviorTreeError from "./Error/BehaviorTreeError";
-import Errors from "./Error/Errors";
-import ActionNode from "./Node/ActionNode";
-import BehaviorTreeNodeInterface from "./Node/BehaviorTreeNodeInterface";
-import InverterNode from "./Node/InverterNode";
-import ParallelNode from "./Node/ParallelNode";
-import ParentBehaviorTreeNodeInterface from "./Node/ParentBehaviorTreeNodeInterface";
-import SelectorNode from "./Node/SelectorNode";
-import SequenceNode from "./Node/SequenceNode";
-import StateData from "./StateData";
+import BehaviorTreeStatus from "./BehaviorTreeStatus.js";
+import BehaviorTreeError from "./Error/BehaviorTreeError.js";
+import Errors from "./Error/Errors.js";
+import ActionNode from "./Node/ActionNode.js";
+import BehaviorTreeNodeInterface from "./Node/BehaviorTreeNodeInterface.js";
+import InverterNode from "./Node/InverterNode.js";
+import ParallelNode from "./Node/ParallelNode.js";
+import ParentBehaviorTreeNodeInterface from "./Node/ParentBehaviorTreeNodeInterface.js";
+import SelectorNode from "./Node/SelectorNode.js";
+import SequenceNode from "./Node/SequenceNode.js";
+import Stack from "./Stack.js";
+import StateData from "./StateData.js";
 
 export default class BehaviorTreeBuilder {
     /**

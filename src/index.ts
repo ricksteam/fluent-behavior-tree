@@ -1,15 +1,15 @@
-import BehaviorTreeBuilder from "./BehaviorTreeBuilder";
-import BehaviorTreeStatus from "./BehaviorTreeStatus";
-import BehaviorTreeErorr from "./Error/BehaviorTreeError";
-import Errors from "./Error/Errors";
-import ActionNode from "./Node/ActionNode";
-import BehaviorTreeNodeInterface from "./Node/BehaviorTreeNodeInterface";
-import InverterNode from "./Node/InverterNode";
-import ParallelNode from "./Node/ParallelNode";
-import ParentBehaviorTreeNodeInterface from "./Node/ParentBehaviorTreeNodeInterface";
-import SelectorNode from "./Node/SelectorNode";
-import SequenceNode from "./Node/SequenceNode";
-import StateData from "./StateData";
+import BehaviorTreeBuilder from "./BehaviorTreeBuilder.js";
+import BehaviorTreeStatus from "./BehaviorTreeStatus.js";
+import BehaviorTreeErorr from "./Error/BehaviorTreeError.js";
+import Errors from "./Error/Errors.js";
+import ActionNode from "./Node/ActionNode.js";
+import BehaviorTreeNodeInterface from "./Node/BehaviorTreeNodeInterface.js";
+import InverterNode from "./Node/InverterNode.js";
+import ParallelNode from "./Node/ParallelNode.js";
+import ParentBehaviorTreeNodeInterface from "./Node/ParentBehaviorTreeNodeInterface.js";
+import SelectorNode from "./Node/SelectorNode.js";
+import SequenceNode from "./Node/SequenceNode.js";
+import StateData from "./StateData.js";
 
 export {
     BehaviorTreeBuilder,

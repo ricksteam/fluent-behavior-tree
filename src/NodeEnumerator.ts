@@ -1,4 +1,4 @@
-import BehaviorTreeNodeInterface from "./Node/BehaviorTreeNodeInterface";
+import BehaviorTreeNodeInterface from "./Node/BehaviorTreeNodeInterface.js";
 
 export default class NodeEnumerator implements Iterable<BehaviorTreeNodeInterface> {
     public currentIndex: number = 0;

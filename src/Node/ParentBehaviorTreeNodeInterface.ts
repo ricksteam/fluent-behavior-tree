@@ -1,4 +1,4 @@
-import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface";
+import BehaviorTreeNodeInterface from "./BehaviorTreeNodeInterface.js";
 
 export default interface ParentBehaviorTreeNodeInterface extends BehaviorTreeNodeInterface {
     /**
