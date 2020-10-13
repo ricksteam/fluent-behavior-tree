@@ -1,23 +1,21 @@
 {
-    "name": "fluent-behavior-tree-browser",
+    "name": "@ricksteam/fluent-behavior-tree-browser",
     "version": "0.1.0",
     "description": "Behavior tree library with a fluent API, compiled for the browser",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/aequasi/fluent-behavior-tree"
+        "url": "https://github.com/ricksteam/fluent-behavior-tree"
     },
     "scripts": {
         "test": "rm -r test/dist; tsc -v && tsc -p test/ && ava -v",
-        "compile": "npm run lint && tsc -p ./",
+        "compile": "npm run lint && tsc -p ./ && npm rollup",
         "rollup":"npx rollup ./dist/index.js --file bundle.js --format iife --name fluentBehaviorTree",
-        "precommit": "npm run compile",
-        "prepublishOnly": "npm run compile",
         "lint": "tslint -c tslint.json 'src/**/*.ts' --exclude 'src/**/*.d.ts' --fix",
         "watch": "nodemon -e ts -w src --exec 'npm run compile'"
     },
-    "author": "Aaron Scherer <aequasi@gmail.com> (http://aaronscherer.me)",
+    "author": "Aaron Scherer <aequasi@gmail.com> (http://aaronscherer.me), B. Ricks @bricksphd",
     "license": "MIT",
     "dependencies": {},
     "devDependencies": {
@@ -38,9 +36,6 @@
         "source": [
             "dist/**/*.js"
         ]
-    },
-    "bugs": {
-        "url": "https://github.com/aequasi/fluent-behavior-tree/issues"
-    },
-    "homepage": "https://github.com/aequasi/fluent-behavior-tree#readme"
+    }
+   
 }
