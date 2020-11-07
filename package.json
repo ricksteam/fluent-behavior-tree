@@ -1,6 +1,6 @@
 {
     "name": "@ricksteam/fluent-behavior-tree-browser",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Behavior tree library with a fluent API, compiled for the browser",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -10,8 +10,8 @@
     },
     "scripts": {
         "test": "rm -r test/dist; tsc -v && tsc -p test/ && ava -v",
-        "compile": "npm run lint && tsc -p ./ && npm rollup",
-        "rollup":"npx rollup ./dist/index.js --file bundle.js --format iife --name fluentBehaviorTree",
+        "compile": "tsc -p ./ && npm rollup",
+        "rollup":"npx rollup ./dist/index.js --file bundle.js --format umd --name fluentBehaviorTree",
         "lint": "tslint -c tslint.json 'src/**/*.ts' --exclude 'src/**/*.d.ts' --fix",
         "watch": "nodemon -e ts -w src --exec 'npm run compile'"
     },
