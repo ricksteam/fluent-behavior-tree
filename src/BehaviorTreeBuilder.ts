@@ -7,6 +7,8 @@ import InverterNode from "./Node/InverterNode.js";
 import ParallelNode from "./Node/ParallelNode.js";
 import ParentBehaviorTreeNodeInterface from "./Node/ParentBehaviorTreeNodeInterface.js";
 import SelectorNode from "./Node/SelectorNode.js";
+import RepeatNode from "./Node/RepeatNode.js"
+import UntilFailNode from "./Node/UntilFailNode.js"
 import SequenceNode from "./Node/SequenceNode.js";
 import Stack from "./Stack.js";
 import StateData from "./StateData.js";
@@ -95,6 +97,28 @@ export default class BehaviorTreeBuilder {
      */
     public selector(name: string, keepState: boolean = true): BehaviorTreeBuilder {
         return this.addParentNode(new SelectorNode(name, keepState));
+    }
+
+    /**
+     * Create a repeat node.
+     *
+     * @param {string}  name
+     * @param {boolean} keepState
+     * @returns {BehaviorTreeBuilder}
+     */
+    public repeat(name: string, keepState: boolean = true): BehaviorTreeBuilder {
+        return this.addParentNode(new RepeatNode(name, keepState));
+    }
+
+    /**
+     * Create a until fail node.
+     *
+     * @param {string}  name
+     * @param {boolean} keepState
+     * @returns {BehaviorTreeBuilder}
+     */
+    public untilFail(name: string, keepState: boolean = true): BehaviorTreeBuilder {
+        return this.addParentNode(new UntilFailNode(name, keepState));
     }
 
     /**

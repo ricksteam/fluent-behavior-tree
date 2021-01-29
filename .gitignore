@@ -3,3 +3,5 @@ dist
 test/dist
 .nyc_output
 node_modules
+LiveServer.html
+.vscode

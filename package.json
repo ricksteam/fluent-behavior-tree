@@ -10,8 +10,8 @@
     },
     "scripts": {
         "test": "rm -r test/dist; tsc -v && tsc -p test/ && ava -v",
-        "compile": "tsc -p ./ && npm rollup",
-        "rollup":"npx rollup ./dist/index.js --file bundle.js --format umd --name fluentBehaviorTree",
+        "compile": "tsc -p ./ && npm run rollup",
+        "rollup": "npx rollup ./dist/index.js --file bundle.js --format umd --name fluentBehaviorTree",
         "lint": "tslint -c tslint.json 'src/**/*.ts' --exclude 'src/**/*.d.ts' --fix",
         "watch": "nodemon -e ts -w src --exec 'npm run compile'"
     },
@@ -37,5 +37,4 @@
             "dist/**/*.js"
         ]
     }
-   
 }

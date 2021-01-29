@@ -30,11 +30,10 @@
     var Errors$1 = Errors;
 
     var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
         return new (P || (P = Promise))(function (resolve, reject) {
             function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
             function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
@@ -61,11 +60,10 @@
     }
 
     var __awaiter$1 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
         return new (P || (P = Promise))(function (resolve, reject) {
             function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
             function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
@@ -102,11 +100,10 @@
     }
 
     var __awaiter$2 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
         return new (P || (P = Promise))(function (resolve, reject) {
             function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
             function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
@@ -198,11 +195,10 @@
     }
 
     var __awaiter$3 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
         return new (P || (P = Promise))(function (resolve, reject) {
             function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
             function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
@@ -252,11 +248,116 @@
     }
 
     var __awaiter$4 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
         return new (P || (P = Promise))(function (resolve, reject) {
             function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
             function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
+        });
+    };
+    /**
+     * Runs child nodes in sequence, until one fails.
+     *
+     * @property {string} name - The name of the node.
+     */
+    class RepeatNode {
+        constructor(name, keepState = false) {
+            this.name = name;
+            this.keepState = keepState;
+            /**
+             * List of child nodes.
+             *
+             * @type {BehaviorTreeNodeInterface[]}
+             */
+            this.children = [];
+        }
+        init() {
+            this.enumerator = new NodeEnumerator(this.children);
+        }
+        tick(state) {
+            return __awaiter$4(this, void 0, void 0, function* () {
+                if (!this.enumerator || !this.keepState) {
+                    this.init();
+                }
+                if (!this.enumerator.current) {
+                    return BehaviorTreeStatus$1.Running;
+                }
+                do {
+                    const status = yield this.enumerator.current.tick(state);
+                    if (status !== BehaviorTreeStatus$1.Success) {
+                        if (status === BehaviorTreeStatus$1.Failure) {
+                            this.enumerator.reset();
+                        }
+                        return BehaviorTreeStatus$1.Running;
+                    }
+                } while (this.enumerator.next());
+                this.enumerator.reset();
+                return BehaviorTreeStatus$1.Running;
+            });
+        }
+        addChild(child) {
+            this.children.push(child);
+        }
+    }
+
+    var __awaiter$5 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+        return new (P || (P = Promise))(function (resolve, reject) {
+            function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+            function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+            step((generator = generator.apply(thisArg, _arguments || [])).next());
+        });
+    };
+    /**
+     * Runs child nodes in sequence, until one fails.
+     *
+     * @property {string} name - The name of the node.
+     */
+    class UntilFailNode {
+        constructor(name, keepState = false) {
+            this.name = name;
+            this.keepState = keepState;
+            /**
+             * List of child nodes.
+             *
+             * @type {BehaviorTreeNodeInterface[]}
+             */
+            this.children = [];
+        }
+        init() {
+            this.enumerator = new NodeEnumerator(this.children);
+        }
+        tick(state) {
+            return __awaiter$5(this, void 0, void 0, function* () {
+                if (!this.enumerator || !this.keepState) {
+                    this.init();
+                }
+                if (!this.enumerator.current) {
+                    return BehaviorTreeStatus$1.Running;
+                }
+                do {
+                    const status = yield this.enumerator.current.tick(state);
+                    if (status !== BehaviorTreeStatus$1.Success) {
+                        if (status === BehaviorTreeStatus$1.Failure) {
+                            this.enumerator.reset();
+                        }
+                        return status;
+                    }
+                } while (this.enumerator.next());
+                this.enumerator.reset();
+                return BehaviorTreeStatus$1.Running;
+            });
+        }
+        addChild(child) {
+            this.children.push(child);
+        }
+    }
+
+    var __awaiter$6 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+        return new (P || (P = Promise))(function (resolve, reject) {
+            function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+            function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
@@ -280,7 +381,7 @@
             this.enumerator = new NodeEnumerator(this.children);
         }
         tick(state) {
-            return __awaiter$4(this, void 0, void 0, function* () {
+            return __awaiter$6(this, void 0, void 0, function* () {
                 if (!this.enumerator || !this.keepState) {
                     this.init();
                 }
@@ -345,12 +446,11 @@
         }
     }
 
-    var __awaiter$5 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
-        function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    var __awaiter$7 = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
         return new (P || (P = Promise))(function (resolve, reject) {
             function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
             function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-            function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+            function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
             step((generator = generator.apply(thisArg, _arguments || [])).next());
         });
     };
@@ -386,7 +486,7 @@
          * @returns {BehaviorTreeBuilder}
          */
         condition(name, fn) {
-            return this.do(name, (t) => __awaiter$5(this, void 0, void 0, function* () { return (yield fn(t)) ? BehaviorTreeStatus$1.Success : BehaviorTreeStatus$1.Failure; }));
+            return this.do(name, (t) => __awaiter$7(this, void 0, void 0, function* () { return (yield fn(t)) ? BehaviorTreeStatus$1.Success : BehaviorTreeStatus$1.Failure; }));
         }
         /**
          * Create an inverter node that inverts the success/failure of its children.
@@ -427,6 +527,26 @@
          */
         selector(name, keepState = true) {
             return this.addParentNode(new SelectorNode(name, keepState));
+        }
+        /**
+         * Create a repeat node.
+         *
+         * @param {string}  name
+         * @param {boolean} keepState
+         * @returns {BehaviorTreeBuilder}
+         */
+        repeat(name, keepState = true) {
+            return this.addParentNode(new RepeatNode(name, keepState));
+        }
+        /**
+         * Create a until fail node.
+         *
+         * @param {string}  name
+         * @param {boolean} keepState
+         * @returns {BehaviorTreeBuilder}
+         */
+        untilFail(name, keepState = true) {
+            return this.addParentNode(new UntilFailNode(name, keepState));
         }
         /**
          * Splice a sub tree into the parent tree.
