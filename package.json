@@ -1,6 +1,6 @@
 {
     "name": "@ricksteam/fluent-behavior-tree-browser",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Behavior tree library with a fluent API, compiled for the browser",
     "main": "./index.js",
     "types": "dist/index.d.ts",
