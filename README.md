@@ -1,3 +1,5 @@
+_This repo has been archived. Please see https://github.com/crowdedjs/fluent-behavior-tree for the most recent code._
+
 # Fluent Behavior Tree
 
 This is a Typescript/Javascript implementation of https://github.com/codecapers/Fluent-Behaviour-Tree
